@@ -477,3 +477,101 @@ body {
     50% { transform: translateY(-30px) rotate(180deg); }
     100% { transform: translateY(0px) rotate(360deg); }
 }
+
+/* =========================================
+   Mobile & Responsive Design (Media Queries)
+   ========================================= */
+
+/* Tablets and Mobile Screens (Max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin-left: 12px;
+        margin-right: 12px;
+        font-size: 0.95rem;
+    }
+
+    /* Hero Section Adjustments */
+    .hero-section {
+        padding-top: 100px; /* Navbar straight */
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem; /* Phone heading size */
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    /* Section Spacing Adjustments */
+    .about-section,
+    .projects-section,
+    .contact-section {
+        padding: 70px 5%;
+    }
+
+    .about-content,
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    /* Projects Grid - 1 Column for Mobile */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Background Icons - change Sizes */
+    .tech-icon {
+        opacity: 0.15 !important;
+    }
+
+    .icon-1 { font-size: 4.5rem; top: 10%; left: 4%; }
+    .icon-2 { font-size: 4rem; top: 70%; left: 3%; }
+    .icon-3 { font-size: 5.5rem; top: 12%; right: 4%; }
+    .icon-4 { font-size: 5rem; top: 55%; right: 5%; }
+    .icon-5 { font-size: 3.5rem; bottom: 8%; left: 10%; }
+    .icon-6 { font-size: 4rem; bottom: 10%; right: 10%; }
+    .icon-7 { font-size: 3.5rem; top: 40%; left: 40%; }
+    .icon-8 { font-size: 4.5rem; top: 82%; left: 45%; }
+}
+
+/* Small Mobile Phones (Max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .contact-details {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3D Slideshow Mobile Scale */
+    .slideshow-container {
+        max-width: 300px;
+        height: 180px;
+    }
+
+    .slide {
+        width: 130px;
+        height: 170px;
+    }
+}
