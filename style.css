@@ -427,12 +427,12 @@ nav a:hover, nav a.active {
    FontAwesome Logos Visibility Fix
    ========================================= */
 
-/* Body background එක transparent විය යුතුය */
+/* Body background transparent */
 body {
     background: transparent !important;
 }
 
-/* Base dark background එක container එකටම ලබා දීම */
+/* Base dark background container */
 .tech-bg-container {
     position: fixed;
     top: 0;
@@ -450,7 +450,7 @@ body {
     position: absolute;
     color: #38bdf8;
     filter: blur(2px);
-    opacity: 0.25 !important; /* පෙනෙන ප්‍රමාණය (Visibility) වැඩි කළා */
+    opacity: 0.25 !important; /*(Visibility) */
     animation: floatIcon 18s infinite ease-in-out alternate;
 }
 
