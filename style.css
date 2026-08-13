@@ -422,3 +422,58 @@ nav a:hover, nav a.active {
         transform: translateY(20px) rotate(-6deg) scale(0.95);
     }
 }
+
+/* =========================================
+   FontAwesome Logos Visibility Fix
+   ========================================= */
+
+/* Body background එක transparent විය යුතුය */
+body {
+    background: transparent !important;
+}
+
+/* Base dark background එක container එකටම ලබා දීම */
+.tech-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #1e293b, #030712) !important;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Common style for blurred floating icons */
+.tech-icon {
+    position: absolute;
+    color: #38bdf8;
+    filter: blur(2px);
+    opacity: 0.25 !important; /* පෙනෙන ප්‍රමාණය (Visibility) වැඩි කළා */
+    animation: floatIcon 18s infinite ease-in-out alternate;
+}
+
+/* Individual Icon Styles & Positions */
+.icon-1 { font-size: 7rem; top: 12%; left: 8%; color: #38bdf8; animation-duration: 22s; }
+.icon-2 { font-size: 6rem; top: 62%; left: 5%; color: #f7df1e; animation-duration: 18s; animation-delay: -3s; }
+.icon-3 { font-size: 9rem; top: 15%; right: 8%; color: #61dafb; animation: rotateAndFloat 25s infinite linear; }
+.icon-4 { font-size: 8rem; top: 52%; right: 10%; color: #818cf8; animation-duration: 20s; animation-delay: -5s; }
+.icon-5 { font-size: 5.5rem; bottom: 10%; left: 20%; color: #f05032; animation-duration: 16s; }
+.icon-6 { font-size: 6rem; bottom: 12%; right: 22%; color: #38bdf8; animation-duration: 24s; animation-delay: -8s; }
+.icon-7 { font-size: 5.5rem; top: 40%; left: 45%; color: #34d399; animation-duration: 19s; }
+.icon-8 { font-size: 7rem; top: 80%; left: 50%; color: #22c55e; animation-duration: 21s; }
+
+/* Up-Down Floating Animation */
+@keyframes floatIcon {
+    0% { transform: translateY(0px) rotate(0deg) scale(1); }
+    50% { transform: translateY(-35px) rotate(12deg) scale(1.05); }
+    100% { transform: translateY(20px) rotate(-8deg) scale(0.95); }
+}
+
+/* Rotating Animation for React */
+@keyframes rotateAndFloat {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(180deg); }
+    100% { transform: translateY(0px) rotate(360deg); }
+}
