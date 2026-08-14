@@ -776,3 +776,50 @@ body {
     }
 
 }
+
+/* style.css හි Hero Section කොටසේ ... */
+
+/* ... (අනෙක් CSS rules) ... */
+
+/* ✅ Social Links Container styling */
+.social-links-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* අයිකන අතර spacing */
+    margin-top: 35px; /* 'View My Work' බොත්තමේ සිට Spacing */
+    animation: fadeIn 1.2s ease-in; /* Fade-in animation එකක් */
+}
+
+/* Individual Icon styling */
+.social-links-container a {
+    font-size: 1.8rem; /* අයිකන වල ප්‍රමාණය */
+    color: #94a3b8; /* Default වර්ණය */
+    transition: all 0.3s ease; /* Hover effect සඳහා transition */
+    text-decoration: none; /* underline ඉවත් කිරීමට */
+}
+
+/* Hover effects */
+.social-links-container a:hover {
+    color: #38bdf8; /* Hover කළ විට වර්ණය */
+    transform: translateY(-5px); /* Hover කළ විට පොඩ්ඩක් උඩට යාම */
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4); /* Glow effect එකක් */
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .social-links-container {
+        gap: 20px; /* Mobile වලදී gap එක අඩු කිරීම */
+        margin-top: 25px;
+    }
+    
+    .social-links-container a {
+        font-size: 1.6rem; /* Mobile වලදී icons size එක අඩු කිරීම */
+    }
+}
+
+/* TikTok Icon Special Hover Glow */
+.social-links-container a[title="TikTok"]:hover {
+    color: #ff0050 !important;
+    text-shadow: 0 0 12px rgba(255, 0, 80, 0.6),
+                -2px 0 8px rgba(0, 242, 234, 0.6);
+}
