@@ -2,6 +2,7 @@
    Base Reset & Styling
    ========================================= */
 html, body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     background-color: #030712 !important; /* Deep dark base color so overscroll is never white */
     margin: 0;
     padding: 0;
