@@ -171,24 +171,108 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <p>Let's connect! Send me a message directly using the form below.</p>
-            
-            <!-- Functional Contact Form -->
-            <form action="https://formspree.io/f/xgvdbywq" method="POST" class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+    <!-- Get In Touch Contact Section -->
+<section class="contact-section" id="contact">
+    <h2>Get In Touch</h2>
+    <p>Let's connect! Send me a message directly using the form below.</p>
+
+    <!-- 🎯 Contact Form Start -->
+    <form id="contact-form" class="contact-form">
+        
+        <!-- 🔑 ඔයාගේ Web3Forms Access Key එක -->
+        <input type="hidden" name="access_key" value="09f102d8-1967-499d-ad18-7ccd73de611b">
+
+        <!-- Name Input -->
+        <div class="input-group">
+            <input type="text" name="name" placeholder="Your Name" required autocomplete="off">
         </div>
-    </section>
+
+        <!-- Email Input -->
+        <div class="input-group">
+            <input type="email" name="email" placeholder="Your Email" required autocomplete="off">
+        </div>
+
+        <!-- Message Input -->
+        <div class="input-group">
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="send-btn">Send Message</button>
+
+    </form>
+</section>
+
+<!-- Success / Animation Popup Modal -->
+<div id="popup-modal" class="popup-modal">
+    <div class="popup-content">
+        <div id="loading-spinner" class="spinner"></div>
+        <div id="success-icon" class="success-icon" style="display: none;">✓</div>
+        <h3 id="response-message">Sending Message...</h3>
+    </div>
+</div>
 
     <!-- JavaScript Link -->
     <script src="script.js"></script>
+<script>
+const form = document.getElementById('contact-form');
+const popupModal = document.getElementById('popup-modal');
+const loadingSpinner = document.getElementById('loading-spinner');
+const successIcon = document.getElementById('success-icon');
+const responseMessage = document.getElementById('response-message');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Page එක refresh/redirect වෙන එක නවත්වයි
+
+    // Popup එක open කරලා Spinner එක පෙන්නනවා
+    popupModal.style.display = 'flex';
+    loadingSpinner.style.display = 'block';
+    successIcon.style.display = 'none';
+    responseMessage.innerText = 'Sending Message...';
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let res = await response.json();
+        if (response.status == 200) {
+            // Success animation/icon පෙන්නනවා
+            loadingSpinner.style.display = 'none';
+            successIcon.style.display = 'block';
+            responseMessage.innerText = 'Message Sent Successfully!';
+
+            // Form එක clear කරනවා
+            form.reset();
+
+            // තත්පර 2.5කට පස්සේ redirect වෙනවා (හෝ popup එක close වෙනවා)
+            setTimeout(() => {
+                popupModal.style.display = 'none';
+                window.location.reload(); 
+            }, 2500);
+
+        } else {
+            loadingSpinner.style.display = 'none';
+            responseMessage.innerText = res.message || 'Something went wrong!';
+            setTimeout(() => { popupModal.style.display = 'none'; }, 3000);
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        loadingSpinner.style.display = 'none';
+        responseMessage.innerText = 'Something went wrong! Try again.';
+        setTimeout(() => { popupModal.style.display = 'none'; }, 3000);
+    });
+});
+</script>
 
 </body>
 </html>
