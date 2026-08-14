@@ -766,11 +766,13 @@ body {
         margin-top: 50px;
     }
     .avatar-frame {
-        width: 130px;
-        height: 130px;
+        width: 170px !important;  /* Mobile එකට ගැලපෙන ලෙස 170px දක්වා ලොකු කළා */
+        height: 170px !important;
     }
+
     .avatar-glow {
-        width: 140px;
-        height: 140px;
+        width: 185px !important;  /* Frame එකට අනුව Background Glow එකත් ලොකු කළා */
+        height: 185px !important;
     }
+
 }
