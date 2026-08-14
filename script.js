@@ -44,25 +44,25 @@ function showSlides() {
         let nextSlide = (currentSlide + 1) % totalSlides;
 
         if (index === currentSlide) {
-            // මැද ප්‍රධාන පින්තූරය (100% Solid, කිසිදු විනිවිදභාවයක් හෝ මැකීමක් නැත)
+            // middle image (clear and prominent)
             slide.style.transform = "translate(-50%, -50%) translateX(0px) scale(1)";
             slide.style.filter = "blur(0px)";
             slide.style.opacity = "1";
-            slide.style.zIndex = "10"; // උඩින්ම පෙන්වීම සඳහා වැඩිම z-index එකක් ලබා දී ඇත
+            slide.style.zIndex = "10"; // higher z-index for the active slide
         } else if (index === prevSlide) {
-            // වම් පස පින්තූරය (පැහැදිලි දුරකින් සහ බ්ලර් වී ඇත)
+            // left side image (slightly blurred and distant)
             slide.style.transform = "translate(-50%, -50%) translateX(-140px) scale(0.85)";
             slide.style.filter = "blur(5px)";
             slide.style.opacity = "0.6";
             slide.style.zIndex = "5";
         } else if (index === nextSlide) {
-            // දකුණු පස පින්තූරය (පැහැදිලි දුරකින් සහ බ්ලර් වී ඇත)
+            // right side image (slightly blurred and distant)
             slide.style.transform = "translate(-50%, -50%) translateX(140px) scale(0.85)";
             slide.style.filter = "blur(5px)";
             slide.style.opacity = "0.6";
             slide.style.zIndex = "5";
         } else {
-            // ඉතිරි පින්තූර සම්පූර්ණයෙන්ම අදෘශ්‍යමාන වේ
+            // other images (completely hidden)
             slide.style.transform = "translate(-50%, -50%) scale(0.7)";
             slide.style.filter = "blur(10px)";
             slide.style.opacity = "0";

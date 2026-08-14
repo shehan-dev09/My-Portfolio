@@ -176,10 +176,10 @@
     <h2>Get In Touch</h2>
     <p>Let's connect! Send me a message directly using the form below.</p>
 
-    <!-- 🎯 Contact Form Start -->
+    <!--Contact Form Start -->
     <form id="contact-form" class="contact-form">
         
-        <!-- 🔑 ඔයාගේ Web3Forms Access Key එක -->
+        <!-- Access key -->
         <input type="hidden" name="access_key" value="09f102d8-1967-499d-ad18-7ccd73de611b">
 
         <!-- Name Input -->
@@ -222,9 +222,9 @@ const successIcon = document.getElementById('success-icon');
 const responseMessage = document.getElementById('response-message');
 
 form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Page එක refresh/redirect වෙන එක නවත්වයි
+    e.preventDefault(); // stop the form from submitting normally
 
-    // Popup එක open කරලා Spinner එක පෙන්නනවා
+    // open the popup modal and show loading spinner
     popupModal.style.display = 'flex';
     loadingSpinner.style.display = 'block';
     successIcon.style.display = 'none';
@@ -245,15 +245,15 @@ form.addEventListener('submit', function(e) {
     .then(async (response) => {
         let res = await response.json();
         if (response.status == 200) {
-            // Success animation/icon පෙන්නනවා
+            // successful submission
             loadingSpinner.style.display = 'none';
             successIcon.style.display = 'block';
             responseMessage.innerText = 'Message Sent Successfully!';
 
-            // Form එක clear කරනවා
+            // clear the form fields after successful submission
             form.reset();
 
-            // තත්පර 2.5කට පස්සේ redirect වෙනවා (හෝ popup එක close වෙනවා)
+            // reload the page after 2.5 seconds to reset the form and modal
             setTimeout(() => {
                 popupModal.style.display = 'none';
                 window.location.reload(); 
